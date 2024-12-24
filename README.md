@@ -57,7 +57,6 @@ onUnmounted(() => clearInterval(intervalId))
 
 
 
-
 # Hooks du Cycle de Vie dans Vue 3
 
 ## Introduction
