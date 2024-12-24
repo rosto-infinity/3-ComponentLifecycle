@@ -114,3 +114,59 @@ const remainingTodos = computed(() => {
 
 
 </script>
+
+
+Hooks du Cycle de Vie en Vue 3
+1. onMounted()
+Description : Enregistre une fonction de rappel qui sera appelée après le montage du composant.
+Utilisation : Utilisé pour effectuer des effets de bord nécessitant l'accès au DOM.
+Exemple :
+Copier
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const el = ref()
+
+onMounted(() => {
+  console.log(el.value) // Accède à l'élément DOM
+})
+</script>
+
+<template>
+  <div ref="el"></div>
+</template>
+2. onUpdated()
+Description : Appelé après que le composant a mis à jour son arbre du DOM.
+Utilisation : Pour accéder au DOM mis à jour après un changement d'état.
+Exemple :
+Copier
+<script setup>
+import { ref, onUpdated } from 'vue'
+
+const count = ref(0)
+
+onUpdated(() => {
+  console.log(document.getElementById('count').textContent)
+})
+</script>
+
+<template>
+  <button id="count" @click="count++">{{ count }}</button>
+</template>
+3. onUnmounted()
+Description : Appelé après le démontage du composant.
+Utilisation : Pour nettoyer les effets de bord, comme les minuteurs ou les écouteurs d'événements.
+Exemple :
+Copier
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+
+let intervalId
+onMounted(() => {
+  intervalId = setInterval(() => {
+    console.log('Tick')
+  }, 1000)
+})
+
+onUnmounted(() => clearInterval(intervalId))
+</script>
