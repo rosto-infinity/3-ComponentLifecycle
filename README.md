@@ -23,7 +23,7 @@
 Description : Appelé après que le composant a mis à jour son arbre du DOM.
 Utilisation : Pour accéder au DOM mis à jour après un changement d'état.
 ##Exemple :
-
+```vue
 <script setup>
 import { ref, onUpdated } from 'vue'
 
@@ -41,7 +41,7 @@ onUpdated(() => {
 Description : Appelé après le démontage du composant.
 Utilisation : Pour nettoyer les effets de bord, comme les minuteurs ou les écouteurs d'événements.
 ##Exemple :
-
+```vue
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
 
