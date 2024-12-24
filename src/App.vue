@@ -1,4 +1,7 @@
 <template>
+  <button @click="showTimer =!showTimer">Afficher /masquer</button>
+  <Timer v-if="showTimer"/>
+
   <form action="" @submit.prevent="addTodo" class="m-10">
 
     <fieldset>
@@ -50,11 +53,15 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import Checkbox from '/components/Checkbox.vue';
+import Timer from '/components/Timer.vue';
 
 
 const newTodo = ref('');
 const todos = ref([]);
 const hideCompleted = ref(false); // Ajout de hideCompleted
+const showTimer = ref(true);
+
+
 
 onMounted(() => {
   fetch('https://jsonplaceholder.typicode.com/todos')
