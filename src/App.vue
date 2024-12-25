@@ -110,9 +110,5 @@ const sortedTodos = computed(() => {
 const remainingTodos = computed(() => {
   return todos.value.filter(t => t.completed === false).length;
 })
-
-
-
-
 </script>
 
