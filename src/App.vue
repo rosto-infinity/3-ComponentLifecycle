@@ -2,6 +2,7 @@
   <button @click="showTimer =!showTimer">Afficher /masquer</button>
   <Timer v-if="showTimer"/>
 
+
   <form action="" @submit.prevent="addTodo" class="m-10">
 
     <fieldset>
@@ -62,7 +63,7 @@ const hideCompleted = ref(false); // Ajout de hideCompleted
 const showTimer = ref(true);
 
 
-
+//fetching data
 onMounted(() => {
   fetch('https://jsonplaceholder.typicode.com/todos')
     .then(response => response.json())
